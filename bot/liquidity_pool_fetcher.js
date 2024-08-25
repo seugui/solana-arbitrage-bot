@@ -1,129 +1,103 @@
-const fetch = require('node-fetch'); // Ensure fetch is available
+const axios = require('axios'); // Import Axios
+const Table = require('cli-table3'); // Import cli-table3
+const { fetchTokenSymbol } = require('./metadata'); // Import the metadata fetching function
 
 // Retrieve environment variables from process.env
 const SHYFT_API_KEY = process.env.SHYFT_API_KEY;
 const token_one = process.env.TOKEN_ONE;
 const token_two = process.env.TOKEN_TWO;
 
-
+// Ensure environment variables are defined
 if (!SHYFT_API_KEY || !token_one || !token_two) {
-    throw new Error('Environment variables SHYFT_API_KEY, SOL, or MSOL are not defined.');
+    throw new Error('Environment variables SHYFT_API_KEY, TOKEN_ONE, or TOKEN_TWO are not defined.');
 }
 
+// Function to fetch liquidity pools
 async function fetchPools(tokenOne, tokenTwo) {
-  // Define the GraphQL query
-  const liquidityQuery = `
-    query MyQuery {
-      Raydium_LiquidityPoolv4(
-        where: {baseMint: {_eq: ${JSON.stringify(tokenOne)}}, quoteMint: {_eq: ${JSON.stringify(tokenTwo)}}}
-      ) {
-        _updatedAt
-        amountWaveRatio
-        baseDecimal
-        baseLotSize
-        baseMint
-        baseNeedTakePnl
-        baseTotalPnl
-        baseVault
-        depth
-        lpMint
-        lpReserve
-        lpVault
-        marketId
-        marketProgramId
-        maxOrder
-        maxPriceMultiplier
-        minPriceMultiplier
-        minSeparateDenominator
-        minSeparateNumerator
-        minSize
-        nonce
-        openOrders
-        orderbookToInitTime
-        owner
-        pnlDenominator
-        pnlNumerator
-        poolOpenTime
-        punishCoinAmount
-        punishPcAmount
-        quoteDecimal
-        quoteLotSize
-        quoteMint
-        quoteNeedTakePnl
-        quoteTotalPnl
-        quoteVault
-        resetFlag
-        state
-        status
-        swapBase2QuoteFee
-        swapBaseInAmount
-        swapBaseOutAmount
-        swapFeeDenominator
-        swapFeeNumerator
-        swapQuote2BaseFee
-        swapQuoteInAmount
-        swapQuoteOutAmount
-        systemDecimalValue
-        targetOrders
-        tradeFeeDenominator
-        tradeFeeNumerator
-        volMaxCutRatio
-        withdrawQueue
-        pubkey
-      }
-      ORCA_WHIRLPOOLS_whirlpool(
-        where: {tokenMintB: {_eq: ${JSON.stringify(tokenTwo)}}, tokenMintA: {_eq: ${JSON.stringify(tokenOne)}}}
-      ) {
-        _lamports
-        feeGrowthGlobalA
-        feeGrowthGlobalB
-        feeRate
-        liquidity
-        protocolFeeOwedA
-        protocolFeeOwedB
-        protocolFeeRate
-        rewardLastUpdatedTimestamp
-        sqrtPrice
-        tickCurrentIndex
-        tickSpacing
-        tokenMintA
-        tokenMintB
-        tokenVaultA
-        tokenVaultB
-        whirlpoolsConfig
-        pubkey
-      }
-    }
-  `;
+    const liquidityQuery = `
+        query MyQuery {
+            Raydium_LiquidityPoolv4(
+                where: {baseMint: {_eq: ${JSON.stringify(tokenOne)}}, quoteMint: {_eq: ${JSON.stringify(tokenTwo)}}}
+            ) {
+                pubkey
+                baseMint
+                quoteMint
+            }
+            ORCA_WHIRLPOOLS_whirlpool(
+                where: {tokenMintB: {_eq: ${JSON.stringify(tokenTwo)}}, tokenMintA: {_eq: ${JSON.stringify(tokenOne)}}}
+            ) {
+                pubkey
+                tokenMintA
+                tokenMintB
+            }
+        }
+    `;
 
-  const result = await fetch(
-    `https://programs.shyft.to/v0/graphql?api_key=${SHYFT_API_KEY}&network=mainnet-beta`,
-    {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: liquidityQuery,
-      })
+    try {
+        const response = await axios.post(
+            `https://programs.shyft.to/v0/graphql?api_key=${SHYFT_API_KEY}&network=mainnet-beta`,
+            { query: liquidityQuery },
+            {
+                headers: { 'Content-Type': 'application/json' }
+            }
+        );
+        return response.data; // Axios automatically parses JSON
+    } catch (error) {
+        console.error('Axios error:', error);
+        throw error; // Re-throw error to be handled in calling function
     }
-  );
-
-  return await result.json();
 }
 
+// Main function to start querying and display data
 async function startQuery() {
-  const { errors, data } = await fetchPools(token_one, token_two);
+    try {
+        const { errors, data } = await fetchPools(token_one, token_two);
 
-  if (errors) {
-    // handle those errors like a pro
-    console.error(errors);
-  }
+        if (errors) {
+            console.error(errors);
+            return;
+        }
 
-  // do something great with this precious data
-  console.log('Raydium pools: ', data?.Raydium_LiquidityPoolv4.length);
-  console.log('Orca pools: ', data?.ORCA_WHIRLPOOLS_whirlpool.length);
+        // Initialize table
+        const table = new Table({
+            head: ['Pool', 'Base Mint', 'Base Symbol', 'Quote Mint', 'Quote Symbol', 'Dex'],
+            colWidths: [50, 30, 20, 30, 20, 10] // Adjust column widths as necessary
+        });
+
+        // Process Raydium pools
+        if (data?.Raydium_LiquidityPoolv4 && data.Raydium_LiquidityPoolv4.length > 0) {
+            for (const pool of data.Raydium_LiquidityPoolv4) {
+                const pubkey = pool.pubkey || 'Unknown Pool';
+                const baseMint = pool.baseMint || 'N/A';
+                const quoteMint = pool.quoteMint || 'N/A';
+                const dex = 'Raydium';
+                const baseSymbol = await fetchTokenSymbol(baseMint);
+                const quoteSymbol = await fetchTokenSymbol(quoteMint);
+
+                table.push([pubkey, baseMint, baseSymbol, quoteMint, quoteSymbol, dex]);
+            }
+        }
+
+        // Process Orca pools
+        if (data?.ORCA_WHIRLPOOLS_whirlpool && data.ORCA_WHIRLPOOLS_whirlpool.length > 0) {
+            for (const pool of data.ORCA_WHIRLPOOLS_whirlpool) {
+                const pubkey = pool.pubkey || 'Unknown Pool';
+                const baseMint = pool.tokenMintA || 'N/A';
+                const quoteMint = pool.tokenMintB || 'N/A';
+                const dex = 'Orca';
+                const baseSymbol = await fetchTokenSymbol(baseMint);
+                const quoteSymbol = await fetchTokenSymbol(quoteMint);
+
+                table.push([pubkey, baseMint, baseSymbol, quoteMint, quoteSymbol, dex]);
+            }
+        }
+
+        // Print the table
+        console.log(table.toString());
+    } catch (error) {
+        console.error('Failed to fetch pools:', error);
+    }
 }
 
-
+// Start querying
 startQuery();

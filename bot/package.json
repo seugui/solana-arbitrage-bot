@@ -11,6 +11,8 @@
     "@solana/web3.js": "latest",
     "@orca-so/whirlpool-sdk": "latest",
     "@project-serum/serum": "latest",
-    "@solana/spl-token": "latest"
+    "cli-table3": "latest",
+    "@solana/spl-token": "latest",
+    "@metaplex-foundation/mpl-token-metadata": "latest"
   }
 }
