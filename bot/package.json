@@ -7,8 +7,10 @@
   },
   "dependencies": {
     "dotenv": "latest",
+    "graphql-request": "5.0.0",
     "@solana/web3.js": "latest",
     "@orca-so/whirlpool-sdk": "latest",
+    "@project-serum/serum": "latest",
     "@solana/spl-token": "latest"
   }
 }

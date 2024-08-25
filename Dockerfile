@@ -17,4 +17,4 @@ COPY bot/ ./
 EXPOSE 8080
 
 # Command to run your bot when the container starts
-CMD ["node", "--no-warnings", "bot.js"]
+CMD ["node", "--no-warnings", "menu.js"]
