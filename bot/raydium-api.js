@@ -34,3 +34,16 @@ export async function fetchRaydiumPoolInfoByMultipleMints(
     throw error;
   }
 }
+
+// Sample Test Case (Limited as it relies on external API)
+(async () => {
+    try {
+      const exampleMintAddress = "So11111111111111111111111111111111111111112";
+      const { mint, metadata } = await fetchRaydiumPoolInfoByMultipleMints(exampleMintAddress);
+      console.log("Mint:", mint.publicKey);
+      console.log("Name:", metadata.name);
+      console.log("Symbol:", metadata.symbol);
+    } catch (error) {
+      console.error("Error during test:", error);
+    }
+  })();

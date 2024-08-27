@@ -25,7 +25,7 @@ const showMenu = () => {
 const handleMenuSelection = (choice) => {
     switch (choice.trim()) {
         case '1':
-            runScript('metadata.js');
+            runScript('raydium-api.js');
             break;
         case '2':
             runScript('liquidity_pool_fetcher.js');
