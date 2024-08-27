@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:latest
+FROM node:20.5.1
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app

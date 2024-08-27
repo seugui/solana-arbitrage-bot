@@ -1,11 +1,9 @@
-const axios = require('axios'); // Import Axios
-const Table = require('cli-table3'); // Import cli-table3
-const { fetchTokenSymbol } = require('./metadata'); // Import the metadata fetching function
+import axios from 'axios'; // Import Axios
+import Table from 'cli-table3'; // Import cli-table3
+import { fetchTokenMetadata } from './metadata.js'; // Import the metadata fetching function
 
 // Retrieve environment variables from process.env
-const SHYFT_API_KEY = process.env.SHYFT_API_KEY;
-const token_one = process.env.TOKEN_ONE;
-const token_two = process.env.TOKEN_TWO;
+const { SHYFT_API_KEY, TOKEN_ONE: token_one, TOKEN_TWO: token_two } = process.env;
 
 // Ensure environment variables are defined
 if (!SHYFT_API_KEY || !token_one || !token_two) {
@@ -71,8 +69,8 @@ async function startQuery() {
                 const baseMint = pool.baseMint || 'N/A';
                 const quoteMint = pool.quoteMint || 'N/A';
                 const dex = 'Raydium';
-                const baseSymbol = await fetchTokenSymbol(baseMint);
-                const quoteSymbol = await fetchTokenSymbol(quoteMint);
+                const baseSymbol = await fetchTokenMetadata(baseMint);
+                const quoteSymbol = await fetchTokenMetadata(quoteMint);
 
                 table.push([pubkey, baseMint, baseSymbol, quoteMint, quoteSymbol, dex]);
             }
@@ -85,8 +83,8 @@ async function startQuery() {
                 const baseMint = pool.tokenMintA || 'N/A';
                 const quoteMint = pool.tokenMintB || 'N/A';
                 const dex = 'Orca';
-                const baseSymbol = await fetchTokenSymbol(baseMint);
-                const quoteSymbol = await fetchTokenSymbol(quoteMint);
+                const baseSymbol = await fetchTokenMetadata(baseMint);
+                const quoteSymbol = await fetchTokenMetadata(quoteMint);
 
                 table.push([pubkey, baseMint, baseSymbol, quoteMint, quoteSymbol, dex]);
             }

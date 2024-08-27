@@ -1,7 +1,10 @@
-require('dotenv').config(); // Load environment variables globally
+// Import dotenv to load environment variables globally
+import dotenv from 'dotenv';
+import readline from 'readline';
+import { exec } from 'child_process';
 
-const readline = require('readline');
-const { exec } = require('child_process');
+// Load environment variables
+dotenv.config();
 
 // Create interface for user input
 const rl = readline.createInterface({
@@ -22,7 +25,7 @@ const showMenu = () => {
 const handleMenuSelection = (choice) => {
     switch (choice.trim()) {
         case '1':
-            runScript('pool_info_fetcher.js');
+            runScript('metadata.js');
             break;
         case '2':
             runScript('liquidity_pool_fetcher.js');

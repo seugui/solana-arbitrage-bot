@@ -1,6 +1,7 @@
 {
   "name": "solana-arbitrage-bot",
   "version": "1.0.0",
+  "type": "module",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
@@ -13,6 +14,9 @@
     "@project-serum/serum": "latest",
     "cli-table3": "latest",
     "@solana/spl-token": "latest",
-    "@metaplex-foundation/mpl-token-metadata": "latest"
+    "@metaplex-foundation/mpl-token-metadata": "latest",
+    "@metaplex-foundation/umi": "latest",
+    "@metaplex-foundation/umi-bundle-defaults": "latest",
+    "@metaplex-foundation/digital-asset-standard-api": "latest"
   }
 }

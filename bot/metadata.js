@@ -1,47 +1,84 @@
-const { Connection, PublicKey } = require('@solana/web3.js');
-const { Metadata } = require('@metaplex-foundation/mpl-token-metadata');
+import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
+import { fetchDigitalAsset } from '@metaplex-foundation/mpl-token-metadata';
 
-// Define the Metadata Program ID for Solana mainnet
-const METADATA_PROGRAM_ID = new PublicKey('metaqbxxUerdq28cj1VBs4b5ghmhK7yNW8R7AehbPrw');
+// Initialize umi
+const umi = createUmi("https://mainnet.helius-rpc.com/?api-key=f2a2a09e-dfa0-48ff-9823-dd714dd5d0ae");
 
-// Ensure SHYFT_API_KEY is set in the environment variables
-const SHYFT_API_KEY = process.env.SHYFT_API_KEY;
-
-// Solana's Mainnet endpoint with API key
-const connection = new Connection(`https://rpc.shyft.to?api_key=${SHYFT_API_KEY}`);
-
-// Function to get metadata address
-async function getMetadataAddress(mint) {
+/**
+ * Fetches metadata for a given token mint address and extracts all fields.
+ *
+ * @param {string} mintAddress - The mint address of the token.
+ * @returns {Promise<{ publicKey: string, mint: MintData, metadata: MetadataData }>} - Object containing all extracted fields.
+ */
+export async function fetchTokenMetadata(mintAddress) {
     try {
-        const mintPublicKey = new PublicKey(mint);
-        const [metadataAddress] = await PublicKey.findProgramAddress(
-            [
-                Buffer.from('metadata'),
-                METADATA_PROGRAM_ID.toBuffer(),
-                mintPublicKey.toBuffer(),
-            ],
-            METADATA_PROGRAM_ID
-        );
-        return metadataAddress;
+        const asset = await fetchDigitalAsset(umi, mintAddress);
+
+        // Extract all fields from the asset
+        const { publicKey, mint, metadata } = asset;
+
+        // Extract fields from mint and metadata
+        const mintData = {
+            publicKey: mint.publicKey,
+            header: {
+                executable: mint.header.executable,
+                owner: mint.header.owner,
+                lamports: mint.header.lamports,
+                rentEpoch: mint.header.rentEpoch,
+                exists: mint.header.exists,
+            },
+            mintAuthority: mint.mintAuthority,
+            supply: mint.supply,
+            decimals: mint.decimals,
+            isInitialized: mint.isInitialized,
+            freezeAuthority: mint.freezeAuthority,
+        };
+
+        const metadataData = {
+            publicKey: metadata.publicKey,
+            header: {
+                executable: metadata.header.executable,
+                owner: metadata.header.owner,
+                lamports: metadata.header.lamports,
+                rentEpoch: metadata.header.rentEpoch,
+                exists: metadata.header.exists,
+            },
+            key: metadata.key,
+            updateAuthority: metadata.updateAuthority,
+            mint: metadata.mint,
+            name: metadata.name,
+            symbol: metadata.symbol,
+            uri: metadata.uri,
+            sellerFeeBasisPoints: metadata.sellerFeeBasisPoints,
+            creators: metadata.creators,
+            primarySaleHappened: metadata.primarySaleHappened,
+            isMutable: metadata.isMutable,
+            editionNonce: metadata.editionNonce,
+            tokenStandard: metadata.tokenStandard,
+            collection: metadata.collection,
+            uses: metadata.uses,
+            collectionDetails: metadata.collectionDetails,
+            programmableConfig: metadata.programmableConfig,
+        };
+
+        // Return an object containing all extracted fields
+        return { publicKey, mint: mintData, metadata: metadataData };
     } catch (error) {
-        console.error('Error getting metadata address:', error);
-        throw error;
+        console.error('Error fetching digital asset:', error);
+        throw error;  // Re-throw the error to allow further handling if needed
     }
 }
 
-// Function to fetch token symbol from metadata
-async function fetchTokenSymbol(mintAddress) {
+/*/ Sample Test Case (Limited as it relies on external API)
+(async () => {
     try {
-        const metadataAddress = await getMetadataAddress(mintAddress);
-        const metadataAccount = await Metadata.load(connection, metadataAddress);
-        const { data } = metadataAccount;
-        return data.symbol || 'Unknown'; // Ensure there's a fallback if `symbol` is undefined
+      const exampleMintAddress = "So11111111111111111111111111111111111111112";
+      const { mint, metadata } = await fetchTokenMetadata(exampleMintAddress);
+      console.log("Mint:", mint.publicKey);
+      console.log("Name:", metadata.name);
+      console.log("Symbol:", metadata.symbol);
     } catch (error) {
-        console.error('Error fetching token metadata:', error);
-        return 'Unknown';
+      console.error("Error during test:", error);
     }
-}
-
-module.exports = {
-    fetchTokenSymbol,
-};
+  })();
+*/  
