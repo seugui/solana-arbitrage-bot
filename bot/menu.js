@@ -15,8 +15,8 @@ const rl = readline.createInterface({
 // Display the menu
 const showMenu = () => {
     console.log('\n--- Menu ---');
-    console.log('1: Get Pool and OpenBook Market Info');
-    console.log('2: Fetch Liquidity Pools for Token');
+    console.log('1: Bot');
+    console.log('2: Show Function Results');
     console.log('3: Exit');
     rl.question('Choose an option: ', handleMenuSelection);
 };
@@ -25,10 +25,10 @@ const showMenu = () => {
 const handleMenuSelection = (choice) => {
     switch (choice.trim()) {
         case '1':
-            runScript('raydium-api.js');
+            runScript('show-pool-info.js');
             break;
         case '2':
-            runScript('liquidity_pool_fetcher.js');
+            runScript('show-function-results.js');
             break;
         case '3':
             console.log('Exiting...');

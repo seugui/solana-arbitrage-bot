@@ -1,49 +1,52 @@
 import axios from 'axios';
 
+// Utility function to log parameters
+function logParameters(parameters) {
+  console.log('Provided Parameters:');
+  Object.entries(parameters).forEach(([key, value]) => {
+    console.log(`  ${key}:`, value);
+  });
+}
+
+// Enhanced function to fetch full API response with better logging
 export async function fetchRaydiumPoolInfoByMultipleMints(
-  mint1,
-  mint2,
   poolType = 'all',
   poolSortField = 'default',
   sortType = 'desc',
   pageSize = 1000,
   page = 1
 ) {
-  try {
-    const params = {
-      mint1,
-      mint2,
-      poolType,
-      poolSortField,
-      sortType,
-      pageSize,
-      page,
-    };
+  // Get mint values from environment variables
+  const mint1 = process.env.TOKEN_ONE;
+  const mint2 = process.env.TOKEN_TWO;
 
+  // Validate that mint1 and mint2 are provided
+  if (!mint1 || !mint2) {
+    throw new Error('Both mint1 and mint2 must be defined in the .env file.');
+  }
+
+  const params = {
+    mint1,
+    mint2,
+    poolType,
+    poolSortField,
+    sortType,
+    pageSize,
+    page,
+  };
+
+  // Log the parameters being sent to the API
+  logParameters(params);
+
+  try {
+    // Make the API request
     const response = await axios.get('https://api-v3.raydium.io/pools/info/mint', { params });
 
-    if (!response.data.success) {
-      throw new Error(`Error fetching pool data: ${response.data.message}`);
-    }
-
-    const poolData = response.data.data;
-
-    return poolData;
+    // Return the full response from the API
+    return response.data;
   } catch (error) {
-    console.error('Error fetching pool data:', error);
-    throw error;
+    console.error('Error fetching pool data:', error.message || error);
+    throw new Error(`Failed to fetch pool data: ${error.message || error}`);
   }
 }
 
-// Sample Test Case (Limited as it relies on external API)
-(async () => {
-    try {
-      const exampleMintAddress = "So11111111111111111111111111111111111111112";
-      const { mint, metadata } = await fetchRaydiumPoolInfoByMultipleMints(exampleMintAddress);
-      console.log("Mint:", mint.publicKey);
-      console.log("Name:", metadata.name);
-      console.log("Symbol:", metadata.symbol);
-    } catch (error) {
-      console.error("Error during test:", error);
-    }
-  })();
