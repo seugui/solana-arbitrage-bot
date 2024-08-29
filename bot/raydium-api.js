@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Enhanced function to fetch full API response with better logging
-export async function fetchRaydiumPoolInfoByMultipleMints(
+export async function fetchRaydiumPoolDataByMints(
   poolType = 'all',
   poolSortField = 'default',
   sortType = 'desc',

@@ -1,5 +1,5 @@
 import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js'; 
-import { fetchRaydiumPoolInfoByMultipleMints } from './raydium-api.js';
+import { fetchRaydiumPoolDataByMints } from './raydium-api.js';
 import { fetchOrcaPoolDataByMints } from './orca-api.js'; // Import the Orca API function
 
 async function displayApiResponse() {
@@ -24,7 +24,7 @@ async function displayApiResponse() {
     }
 
     // Fetch the data from the Raydium API
-    const raydiumResponse = await fetchRaydiumPoolInfoByMultipleMints(
+    const raydiumResponse = await fetchRaydiumPoolDataByMints(
       'all',          // poolType
       'default',      // poolSortField
       'desc',         // sortType

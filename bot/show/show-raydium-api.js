@@ -1,10 +1,10 @@
 // show-function-results.js
-import { fetchRaydiumPoolInfoByMultipleMints } from '../raydium-api.js'; // Note the .js extension
+import { fetchRaydiumPoolDataByMints } from '../raydium-api.js'; // Note the .js extension
 
 // Test the function
 async function displayRadyumPoolData() {
     try {
-      const result = await fetchRaydiumPoolInfoByMultipleMints(
+      const result = await fetchRaydiumPoolDataByMints(
         'all',          // poolType
         'default',      // poolSortField
         'desc',         // sortType

@@ -14,13 +14,20 @@ async function displayMeteoraPoolData() {
     } else {
       console.log(`Total Pools Found: ${filteredPools.length}`);
       
-      // Optionally log a few examples if the data is too large
-      filteredPools.slice(0, 5).forEach(pool => {
-        console.log(JSON.stringify(pool, null, 2));
-      });
+      // Prepare the Meteora table data
+      const meteoraTable = filteredPools.map(pool => ({
+        id: pool.pool_address,
+        price: parseFloat(pool.pool_lp_price_in_usd)?.toFixed(2) ?? 'N/A',
+        tokenA: pool.pool_name,
+        tokenB: pool.pool_name,
+        tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
+        source: 'Meteora' // Indicate the source of the data
+      }));
+
+      // Log a few examples if the data is too large
+      console.table(meteoraTable.slice(0, 50)); // Display the first 5 entries
       
-      // Inform the user if there are more pools not shown
-      if (filteredPools.length > 5) {
+      if (filteredPools.length > 50) {
         console.log('... and more pools. Displayed the first 5 pools.');
       }
     }
