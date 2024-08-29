@@ -75,14 +75,24 @@ async function displayApiResponse() {
     const filteredMeteoraPools = meteoraPools.filter(pool => parseFloat(pool.pool_tvl) >= tvlThreshold);
 
     // Prepare a structured array for logging filtered Meteora pool data
-    const meteoraTable = filteredMeteoraPools.map(pool => ({
-      id: pool.pool_address,
-      price: parseFloat(pool.pool_lp_price_in_usd)?.toFixed(2) ?? 'N/A',
-      tokenA: pool.pool_name,
-      tokenB: pool.pool_name,
-      tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
-      source: 'Meteora' // Indicate the source of the data
-    }));
+    const meteoraTable = filteredMeteoraPools.map(pool => {
+      // Extract USD values and amounts
+      const [usdAmountA, usdAmountB] = pool.pool_token_usd_amounts;
+      const [amountA, amountB] = pool.pool_token_amounts;
+
+      // Calculate token prices
+      const priceTokenA = parseFloat(usdAmountA) / parseFloat(amountA);
+      const priceTokenB = parseFloat(usdAmountB) / parseFloat(amountB);
+
+      return {
+        id: pool.pool_address,
+        price: priceTokenB.toFixed(2) ?? 'N/A',
+        tokenA: pool.pool_name,
+        tokenB: pool.pool_name,
+        tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
+        source: 'Meteora' // Indicate the source of the data
+      };
+    });
 
     // Combine Raydium, Orca, and Meteora data into a single array
     const combinedTable = [...raydiumTable, ...orcaTable, ...meteoraTable];
