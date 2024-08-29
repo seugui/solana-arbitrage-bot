@@ -8,10 +8,16 @@ async function displayApiResponse() {
     const tokenData = await fetchSolanaCoingeckoTokenData(mintAddress);
 
     if (tokenData) {
-      console.log('Symbol:', tokenData.symbol);
-      console.log('Name:', tokenData.name);
-      console.log('Current price (USD):', tokenData.market_data.current_price_usd);
-      // Additional logging if needed
+      // Prepare a structured object for the token data
+      const tokenTableData = {
+        Symbol: tokenData.symbol,
+        Name: tokenData.name,
+        'Current Price (USD)': tokenData.market_data.current_price_usd,
+        '24h Volume (USD)': tokenData.market_data.total_volume_usd || 'N/A'
+      };
+
+    // Display the token data in a table format
+      console.table([tokenTableData]);
     } else {
       console.log('Failed to fetch token information.');
     }
