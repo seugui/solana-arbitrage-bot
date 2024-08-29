@@ -1,13 +1,5 @@
 import axios from 'axios';
 
-// Utility function to log parameters
-function logParameters(parameters) {
-  console.log('Provided Parameters:');
-  Object.entries(parameters).forEach(([key, value]) => {
-    console.log(`  ${key}:`, value);
-  });
-}
-
 // Enhanced function to fetch full API response with better logging
 export async function fetchRaydiumPoolInfoByMultipleMints(
   poolType = 'all',
@@ -34,9 +26,6 @@ export async function fetchRaydiumPoolInfoByMultipleMints(
     pageSize,
     page,
   };
-
-  // Log the parameters being sent to the API
-  logParameters(params);
 
   try {
     // Make the API request
