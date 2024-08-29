@@ -28,7 +28,7 @@ const handleMenuSelection = (choice) => {
             runScript('arbitraje-oportunities.js');
             break;
         case '2':
-            runScript('./show/show-orca-api.js');
+            runScript('show-pool-info.js');
             break;
         case '3':
             console.log('Exiting...');
