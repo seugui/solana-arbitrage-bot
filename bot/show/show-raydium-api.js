@@ -2,7 +2,7 @@
 import { fetchRaydiumPoolInfoByMultipleMints } from '../raydium-api.js'; // Note the .js extension
 
 // Test the function
-async function testFetchRaydiumPoolInfo() {
+async function displayRadyumPoolData() {
     try {
       const result = await fetchRaydiumPoolInfoByMultipleMints(
         'all',          // poolType
@@ -22,5 +22,5 @@ async function testFetchRaydiumPoolInfo() {
     }
   }
   
-  // Run the test
-  testFetchRaydiumPoolInfo();
+// Run the test
+displayRadyumPoolData();

@@ -1,9 +1,9 @@
-import { fetchOrcaPoolDataByMints } from '../orca-api.js'; // Adjust the path accordingly
+import { fetchMeteoraPoolDataByMints } from '../meteora-api.js'; // Adjust the path accordingly
 
-async function displayOrcaPoolData() {
+async function displayMeteoraPoolData() {
   try {
-    // Fetch the filtered pool data
-    const filteredPools = await fetchOrcaPoolDataByMints(
+    // Fetch the filtered pool data from Meteora API
+    const filteredPools = await fetchMeteoraPoolDataByMints(
       process.env.TOKEN_ONE,  // Get tokenA mint from .env
       process.env.TOKEN_TWO   // Get tokenB mint from .env
     );
@@ -26,9 +26,9 @@ async function displayOrcaPoolData() {
     }
 
   } catch (error) {
-    console.error('Error displaying Orca pool data:', error.message || error);
+    console.error('Error displaying Meteora pool data:', error.message || error);
   }
 }
 
 // Execute the function to display the data
-displayOrcaPoolData();
+displayMeteoraPoolData();

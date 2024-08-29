@@ -16,8 +16,11 @@ const rl = readline.createInterface({
 const showMenu = () => {
     console.log('\n--- Menu ---');
     console.log('1: Arbitraje Oportunities');
-    console.log('2: Show Function Results');
-    console.log('3: Exit');
+    console.log('2: Show Pools Info');
+    console.log('3: Show Meteora API');
+    console.log('4: Show Raydium API');
+    console.log('5: Show Orca API');
+    console.log('6: Exit');
     rl.question('Choose an option: ', handleMenuSelection);
 };
 
@@ -31,6 +34,15 @@ const handleMenuSelection = (choice) => {
             runScript('show-pool-info.js');
             break;
         case '3':
+            runScript('./show/show-meteora-api.js');
+            break;
+        case '4':
+            runScript('./show/show-raydium-api.js');
+            break;
+        case '5':
+            runScript('./show/show-orca-api.js');
+            break;
+        case '6':
             console.log('Exiting...');
             rl.close();
             process.exit(0);
