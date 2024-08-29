@@ -33,7 +33,7 @@ async function displayApiResponse() {
     );
 
     // Extract and filter the data array by TVL
-    const tvlThreshold = 10000; // Set your TVL threshold here
+    const tvlThreshold = 1000000; // Set your TVL threshold here
     const filteredRaydiumPools = raydiumResponse.data.data.filter(pool => pool.tvl >= tvlThreshold);
 
     // Prepare a structured array for logging Raydium data
