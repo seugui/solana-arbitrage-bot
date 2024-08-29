@@ -1,5 +1,4 @@
 // show-function-results.js
-import dotenv from 'dotenv';
 import { fetchRaydiumPoolInfoByMultipleMints } from '../raydium-api.js'; // Note the .js extension
 
 // Test the function

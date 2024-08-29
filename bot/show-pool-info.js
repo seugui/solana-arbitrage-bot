@@ -1,8 +1,22 @@
-import { fetchRaydiumPoolInfoByMultipleMints } from './raydium-api.js'; // Import the raydium fetching function
+import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js'; 
+import { fetchRaydiumPoolInfoByMultipleMints } from './raydium-api.js';
 
 async function displayApiResponse() {
   try {
-    // Fetch the data from the API
+    // Fetch the token data from the CoinGecko API
+    const mintAddress = process.env.TOKEN_ONE; // Use the appropriate mint address
+    const tokenData = await fetchSolanaCoingeckoTokenData(mintAddress);
+
+    if (tokenData) {
+      console.log('Symbol:', tokenData.symbol);
+      console.log('Name:', tokenData.name);
+      console.log('Current price (USD):', tokenData.market_data.current_price_usd);
+      // Additional logging if needed
+    } else {
+      console.log('Failed to fetch token information.');
+    }
+
+    // Fetch the data from the Raydium API
     const response = await fetchRaydiumPoolInfoByMultipleMints(
       'all',          // poolType
       'default',      // poolSortField

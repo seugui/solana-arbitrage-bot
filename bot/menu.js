@@ -28,7 +28,7 @@ const handleMenuSelection = (choice) => {
             runScript('show-pool-info.js');
             break;
         case '2':
-            runScript('./show/show-raydium-api.js');
+            runScript('./show/show-coingecko-api.js');
             break;
         case '3':
             console.log('Exiting...');
