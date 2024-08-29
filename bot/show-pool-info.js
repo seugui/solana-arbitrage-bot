@@ -37,7 +37,7 @@ async function displayApiResponse() {
     );
 
     // Define your TVL threshold
-    const tvlThreshold = 1000000;
+    const tvlThreshold = 100000;
 
     // Extract and filter the data array by TVL
     const filteredRaydiumPools = raydiumResponse.data.data.filter(pool => pool.tvl >= tvlThreshold);
@@ -78,8 +78,8 @@ async function displayApiResponse() {
     const meteoraTable = filteredMeteoraPools.map(pool => ({
       id: pool.pool_address,
       price: parseFloat(pool.pool_lp_price_in_usd)?.toFixed(2) ?? 'N/A',
-      tokenA: pool.pool_token_mints[0] || 'N/A', // First token mint
-      tokenB: pool.pool_token_mints[1] || 'N/A', // Second token mint
+      tokenA: pool.pool_name,
+      tokenB: pool.pool_name,
       tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
       source: 'Meteora' // Indicate the source of the data
     }));
