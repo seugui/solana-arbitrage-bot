@@ -1,29 +1,30 @@
 import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js'; 
 import { fetchRaydiumPoolInfoByMultipleMints } from './raydium-api.js';
+import { fetchOrcaPoolDataByMints } from './orca-api.js'; // Import the Orca API function
 
 async function displayApiResponse() {
   try {
     // Fetch the token data from the CoinGecko API
-    const mintAddress = process.env.TOKEN_ONE; // Use the appropriate mint address
-    const tokenData = await fetchSolanaCoingeckoTokenData(mintAddress);
+    const tokenOneMintAddress = process.env.TOKEN_ONE; // Use the appropriate mint address
+    const tokenData = await fetchSolanaCoingeckoTokenData(tokenOneMintAddress);
 
     if (tokenData) {
       // Prepare a structured object for the token data
-      const tokenTableData = {
-        Symbol: tokenData.symbol,
-        Name: tokenData.name,
-        'Current Price (USD)': tokenData.market_data.current_price_usd,
-        '24h Volume (USD)': tokenData.market_data.total_volume_usd || 'N/A'
+      const tokenTable = {
+        symbol: tokenData.symbol,
+        name: tokenData.name,
+        currentPriceUSD: tokenData.market_data.current_price_usd,
+        volume24hUSD: tokenData.market_data.total_volume_usd || 'N/A'
       };
 
-    // Display the token data in a table format
-      console.table([tokenTableData]);
+      // Display the token data in a table format
+      console.table([tokenTable]);
     } else {
       console.log('Failed to fetch token information.');
     }
 
     // Fetch the data from the Raydium API
-    const response = await fetchRaydiumPoolInfoByMultipleMints(
+    const raydiumResponse = await fetchRaydiumPoolInfoByMultipleMints(
       'all',          // poolType
       'default',      // poolSortField
       'desc',         // sortType
@@ -31,50 +32,42 @@ async function displayApiResponse() {
       1               // page
     );
 
-    // Extract the data array
-    let items = response.data.data;
-
-    // Filter the items by TVL, for example, keep only those with a TVL greater than 1000
+    // Extract and filter the data array by TVL
     const tvlThreshold = 10000; // Set your TVL threshold here
-    items = items.filter(item => item.tvl >= tvlThreshold);
+    const filteredRaydiumPools = raydiumResponse.data.data.filter(pool => pool.tvl >= tvlThreshold);
 
-    // Prepare a structured array for logging
-    const tableData = items.map(item => ({
-        //ProgramId: item.programId,
-        Id: item.id,
-        Type: item.type,
-        //MintA_Symbol: item.mintA.symbol,
-        //MintA_Name: item.mintA.name,
-        //MintA_Address: item.mintA.address,
-        //MintB_Symbol: item.mintB.symbol,
-        //MintB_Name: item.mintB.name,
-        //MintB_Address: item.mintB.address,
-        Price: item.price?.toFixed(2) ?? 'N/A',
-        MintAmountA: item.mintAmountA?.toFixed(2) ?? 'N/A',
-        MintAmountB: item.mintAmountB?.toFixed(2) ?? 'N/A',
-        //FeeRate: item.feeRate,
-        TVL: item.tvl?.toFixed(2) ?? 'N/A',
-        //Day_Volume: item.day.volume,
-        //Day_APR: item.day.apr,
-        //Week_Volume: item.week.volume,
-        //Week_APR: item.week.apr,
-        //Month_Volume: item.month.volume,
-        //Month_APR: item.month.apr,
-        //PoolType: item.pooltype.join(', '),
-        //RewardDefaultPoolInfos: item.rewardDefaultPoolInfos,
-        //FarmUpcomingCount: item.farmUpcomingCount,
-        //FarmOngoingCount: item.farmOngoingCount,
-        //FarmFinishedCount: item.farmFinishedCount,
-        //MarketId: item.marketId,
-        //LP_Mint_Symbol: item.lpMint.symbol,
-        //LP_Mint_Name: item.lpMint.name,
-        //LP_Mint_Address: item.lpMint.address,
-        LP_Price: item.lpPrice?.toFixed(2) ?? 'N/A',
-        LP_Amount: item.lpAmount?.toFixed(2) ?? 'N/A'
+    // Prepare a structured array for logging Raydium data
+    const raydiumTable = filteredRaydiumPools.map(pool => ({
+        id: pool.id,
+        price: pool.price?.toFixed(2) ?? 'N/A',
+        tokenA: pool.mintA.symbol,
+        tokenB: pool.mintB.symbol,
+        tvl: pool.tvl?.toFixed(2) ?? 'N/A',
+        source: 'Raydium' // Indicate the source of the data
     }));
 
-    // Log the data in a tabular format
-    console.table(tableData);
+    // Fetch the data from the Orca API
+    const orcaPools = await fetchOrcaPoolDataByMints(process.env.TOKEN_ONE, process.env.TOKEN_TWO);
+
+    // Filter Orca pools by TVL
+    const filteredOrcaPools = orcaPools.filter(pool => pool.tvl >= tvlThreshold);
+
+    // Prepare a structured array for logging filtered Orca pool data
+    const orcaTable = filteredOrcaPools.map(pool => ({
+        id: pool.address,
+        price: pool.price?.toFixed(2) ?? 'N/A',
+        tokenA: pool.tokenA.symbol,
+        tokenB: pool.tokenB.symbol,
+        tvl: pool.tvl?.toFixed(2) ?? 'N/A',
+        source: 'Orca' // Indicate the source of the data
+    }));
+
+    // Combine Raydium and Orca data into a single array
+    const combinedTable = [...raydiumTable, ...orcaTable];
+
+    // Log combined data in a tabular format
+    console.table(combinedTable);
+    
   } catch (error) {
     console.error('Error fetching or displaying data:', error.message || error);
   }
