@@ -17,6 +17,7 @@
     "@metaplex-foundation/mpl-token-metadata": "latest",
     "@metaplex-foundation/umi": "latest",
     "@metaplex-foundation/umi-bundle-defaults": "latest",
+    "date-fns": "latest",
     "@metaplex-foundation/digital-asset-standard-api": "latest"
   }
 }

@@ -67,6 +67,7 @@ const handleMenuSelection = (choice) => {
 
 // Run the selected script
 const runScript = (scriptName) => {
+    console.clear(); // Clear the screen
     console.log(`Running ${scriptName}...`);
     exec(`node ${scriptName}`, (error, stdout, stderr) => {
         if (error) {

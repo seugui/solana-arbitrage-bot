@@ -1,0 +1,2612 @@
+[
+  {
+    "id": "wrapped-solana",
+    "symbol": "sol",
+    "name": "Wrapped Solana",
+    "asset_platform_id": "solana",
+    "platforms": {
+      "solana": "So11111111111111111111111111111111111111112",
+      "fantom": "0x44f7237df00e386af8e79b817d05ed9f6fe0f296",
+      "neon-evm": "0x5f38248f339bf4e84a2caf4e4c0552862dc9f82a",
+      "energi": "0x881145b61c604d4d27b8969b917bc4844cc8a9dc",
+      "near-protocol": "sol.token.a11bd.near",
+      "binance-smart-chain": "0x570a5d26f7765ecb712c0924e4de545b89fd43df"
+    },
+    "detail_platforms": {
+      "solana": {
+        "decimal_place": 9,
+        "contract_address": "So11111111111111111111111111111111111111112"
+      },
+      "fantom": {
+        "decimal_place": 18,
+        "contract_address": "0x44f7237df00e386af8e79b817d05ed9f6fe0f296"
+      },
+      "neon-evm": {
+        "decimal_place": 9,
+        "contract_address": "0x5f38248f339bf4e84a2caf4e4c0552862dc9f82a"
+      },
+      "energi": {
+        "decimal_place": 18,
+        "contract_address": "0x881145b61c604d4d27b8969b917bc4844cc8a9dc"
+      },
+      "near-protocol": {
+        "decimal_place": 24,
+        "contract_address": "sol.token.a11bd.near"
+      },
+      "binance-smart-chain": {
+        "decimal_place": 18,
+        "contract_address": "0x570a5d26f7765ecb712c0924e4de545b89fd43df"
+      }
+    },
+    "block_time_in_minutes": 0,
+    "hashing_algorithm": null,
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Wrapped-Tokens",
+      "Solana Ecosystem",
+      "Fantom Ecosystem"
+    ],
+    "preview_listing": false,
+    "public_notice": null,
+    "additional_notices": [
+      "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+    ],
+    "localization": {
+      "en": "Wrapped Solana",
+      "de": "",
+      "es": "",
+      "fr": "",
+      "it": "",
+      "pl": "",
+      "ro": "",
+      "hu": "",
+      "nl": "",
+      "pt": "",
+      "sv": "",
+      "vi": "",
+      "tr": "",
+      "ru": "",
+      "ja": "",
+      "zh": "",
+      "zh-tw": "",
+      "ko": "",
+      "ar": "",
+      "th": "",
+      "id": "",
+      "cs": "",
+      "da": "",
+      "el": "",
+      "hi": "",
+      "no": "",
+      "sk": "",
+      "uk": "",
+      "he": "",
+      "fi": "",
+      "bg": "",
+      "hr": "",
+      "lt": "",
+      "sl": ""
+    },
+    "description": "Wrapped Solana ",
+    "links": {
+      "homepage": [
+        "https://solana.com/",
+        "",
+        ""
+      ],
+      "whitepaper": "",
+      "blockchain_site": [
+        "https://solscan.io/token/So11111111111111111111111111111111111111112",
+        "https://bscscan.com/token/0x570a5d26f7765ecb712c0924e4de545b89fd43df",
+        "https://ftmscan.com/token/0x44f7237df00e386af8e79b817d05ed9f6fe0f296",
+        "https://scan.meter.io/address/0x44f7237df00e386af8e79b817d05ed9f6fe0f296",
+        "https://binplorer.com/address/0x570a5d26f7765ecb712c0924e4de545b89fd43df",
+        "https://explorer.energi.network/token/0x881145b61c604d4d27b8969b917bc4844cc8a9dc",
+        "https://nearblocks.io/address/sol.token.a11bd.near#transaction",
+        "https://neonscan.org/token/0x5f38248f339bf4e84a2caf4e4c0552862dc9f82a",
+        "https://bnb.dex.guru/token/0x570a5d26f7765ecb712c0924e4de545b89fd43df",
+        "https://nearblocks.io/token/sol.token.a11bd.near"
+      ],
+      "official_forum_url": [
+        "https://docs.solana.com/",
+        "",
+        ""
+      ],
+      "chat_url": [
+        "https://discordapp.com/invite/pquxPsq",
+        "",
+        ""
+      ],
+      "announcement_url": [
+        "https://medium.com/solana-labs",
+        ""
+      ],
+      "twitter_screen_name": "solana",
+      "facebook_username": "",
+      "bitcointalk_thread_identifier": null,
+      "telegram_channel_identifier": "",
+      "subreddit_url": "https://www.reddit.com/r/solana",
+      "repos_url": {
+        "github": [],
+        "bitbucket": []
+      }
+    },
+    "image": {
+      "thumb": "https://coin-images.coingecko.com/coins/images/21629/thumb/solana.jpg?1696520989",
+      "small": "https://coin-images.coingecko.com/coins/images/21629/small/solana.jpg?1696520989",
+      "large": "https://coin-images.coingecko.com/coins/images/21629/large/solana.jpg?1696520989"
+    },
+    "country_origin": "",
+    "genesis_date": null,
+    "sentiment_votes_up_percentage": null,
+    "sentiment_votes_down_percentage": null,
+    "market_cap_rank": null,
+    "market_data": {
+      "current_price_usd": 138.94,
+      "total_value_locked_usd": null,
+      "mcap_to_tvl_ratio": null,
+      "fdv_to_tvl_ratio": null,
+      "market_cap_usd": 0,
+      "fully_diluted_valuation_usd": null,
+      "total_volume_usd": 213128771,
+      "high_24h_usd": 147.16,
+      "low_24h_usd": 137.6,
+      "ath_usd": 209.09,
+      "atl_usd": 8.11,
+      "price_change_24h_usd": null,
+      "price_change_percentage_24h": -4.66013,
+      "total_supply": null,
+      "max_supply": null,
+      "circulating_supply": 0
+    },
+    "community_data": {
+      "facebook_likes": null,
+      "twitter_followers": 2755767,
+      "reddit_average_comments_48h": 0,
+      "reddit_average_posts_48h": 0,
+      "reddit_subscribers": 0,
+      "telegram_channel_user_count": null,
+      "telegram_followers": null,
+      "whatsapp_group_user_count": null
+    },
+    "developer_data": {
+      "forks": 0,
+      "stars": 0,
+      "subscribers": 0,
+      "total_issues": 0,
+      "closed_issues": 0,
+      "pull_requests_merged": 0,
+      "pull_requests_contributed": null,
+      "code_additions_deletions_4_weeks": {
+        "additions": null,
+        "deletions": null
+      },
+      "commit_count_4_weeks": 0
+    },
+    "last_updated": "2024-08-30T14:05:37.078Z",
+    "tickers": [
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "THENA FUSION",
+          "identifier": "thena-fusion",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "PancakeSwap (v2)",
+          "identifier": "pancakeswap_new",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "FluxBeam",
+          "identifier": "fluxbeam",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "usd-coin",
+    "symbol": "usdc",
+    "name": "USDC",
+    "asset_platform_id": "ethereum",
+    "platforms": {
+      "ethereum": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "polkadot": "1337",
+      "optimistic-ethereum": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "stellar": "USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+      "near-protocol": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+      "hedera-hashgraph": "0.0.456858",
+      "zksync": "0x1d17cbcf0d6d143135ae902365d2e5e2a16538d4",
+      "avalanche": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "base": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "arbitrum-one": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "polygon-pos": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "tron": "TEkxiTehnzSmSe2XqrBj4w32RUN966rdz8",
+      "algorand": "31566704",
+      "solana": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "flow": "A.b19436aae4d94622.FiatToken",
+      "celo": "0xceba9300f2b948710d2653dd7b07f33a8b32118c"
+    },
+    "detail_platforms": {
+      "ethereum": {
+        "decimal_place": 6,
+        "contract_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      "polkadot": {
+        "decimal_place": 6,
+        "contract_address": "1337"
+      },
+      "optimistic-ethereum": {
+        "decimal_place": 6,
+        "contract_address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+      },
+      "stellar": {
+        "decimal_place": null,
+        "contract_address": "USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+      },
+      "near-protocol": {
+        "decimal_place": 6,
+        "contract_address": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1"
+      },
+      "hedera-hashgraph": {
+        "decimal_place": 6,
+        "contract_address": "0.0.456858"
+      },
+      "zksync": {
+        "decimal_place": 6,
+        "contract_address": "0x1d17cbcf0d6d143135ae902365d2e5e2a16538d4"
+      },
+      "avalanche": {
+        "decimal_place": 6,
+        "contract_address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+      },
+      "base": {
+        "decimal_place": 6,
+        "contract_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+      },
+      "arbitrum-one": {
+        "decimal_place": 6,
+        "contract_address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      },
+      "polygon-pos": {
+        "decimal_place": 6,
+        "contract_address": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+      },
+      "tron": {
+        "decimal_place": 6,
+        "contract_address": "TEkxiTehnzSmSe2XqrBj4w32RUN966rdz8"
+      },
+      "algorand": {
+        "decimal_place": 5,
+        "contract_address": "31566704"
+      },
+      "solana": {
+        "decimal_place": 6,
+        "contract_address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "flow": {
+        "decimal_place": 8,
+        "contract_address": "A.b19436aae4d94622.FiatToken"
+      },
+      "celo": {
+        "decimal_place": 6,
+        "contract_address": "0xceba9300f2b948710d2653dd7b07f33a8b32118c"
+      }
+    },
+    "block_time_in_minutes": 0,
+    "hashing_algorithm": null,
+    "categories": [
+      "Stablecoins",
+      "USD Stablecoin",
+      "Polkadot Ecosystem",
+      "BNB Chain Ecosystem",
+      "Cosmos Ecosystem",
+      "Solana Ecosystem",
+      "Avalanche Ecosystem",
+      "Polygon Ecosystem",
+      "Near Protocol Ecosystem",
+      "Gnosis Chain Ecosystem",
+      "Fantom Ecosystem",
+      "Harmony Ecosystem",
+      "Arbitrum Ecosystem",
+      "Celo Ecosystem",
+      "Moonriver Ecosystem",
+      "Moonbeam Ecosystem",
+      "Ethereum Ecosystem",
+      "Cronos Ecosystem",
+      "Algorand Ecosystem",
+      "Metis Ecosystem",
+      "Arbitrum Nova Ecosystem",
+      "Optimism Ecosystem",
+      "Velas Ecosystem",
+      "Canto Ecosystem",
+      "ZkSync Ecosystem",
+      "Mantle Ecosystem",
+      "Base Ecosystem",
+      "Rollux Ecosystem",
+      "Ronin Ecosystem",
+      "Tron Ecosystem",
+      "Neon Ecosystem",
+      "Osmosis Ecosystem",
+      "Hedera Ecosystem",
+      "Kava Ecosystem",
+      "Stellar Ecosystem",
+      "Flow Ecosystem",
+      "Fiat-backed Stablecoin"
+    ],
+    "preview_listing": false,
+    "public_notice": "USD Coin (USDC) has rebranded to USDC (USDC). For more information, please refer to this <a href=\"https://www.circle.com/blog/usd-coin-and-euro-coin-are-now-exclusively-usdc-and-eurc\">announcement</a> from the Circle Blog.",
+    "additional_notices": [],
+    "localization": {
+      "en": "USDC",
+      "de": "",
+      "es": "",
+      "fr": "",
+      "it": "",
+      "pl": "",
+      "ro": "",
+      "hu": "",
+      "nl": "",
+      "pt": "",
+      "sv": "",
+      "vi": "",
+      "tr": "",
+      "ru": "",
+      "ja": "USDコイン",
+      "zh": "",
+      "zh-tw": "",
+      "ko": "",
+      "ar": "",
+      "th": "",
+      "id": "",
+      "cs": "",
+      "da": "",
+      "el": "",
+      "hi": "",
+      "no": "",
+      "sk": "",
+      "uk": "",
+      "he": "",
+      "fi": "",
+      "bg": "",
+      "hr": "",
+      "lt": "",
+      "sl": ""
+    },
+    "description": "USDC is a fully collateralized US dollar stablecoin. USDC is the bridge between dollars and trading on cryptocurrency exchanges. The technology behind CENTRE makes it possible to exchange value between people, businesses and financial institutions just like email between mail services and texts between SMS providers. We believe by removing artificial economic borders, we can create a more inclusive global economy.",
+    "links": {
+      "homepage": [
+        "https://www.circle.com/en/usdc",
+        "",
+        ""
+      ],
+      "whitepaper": "",
+      "blockchain_site": [
+        "https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "https://bscscan.com/token/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        "https://nearblocks.io/token/17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+        "https://ethplorer.io/address/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "https://arbiscan.io/token/0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "https://binplorer.com/address/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        "https://explorer.kava.io/token/0xfa9343c3897324496a05fc75abed6bac29f8a40f",
+        "https://ftmscan.com/token/0x04068da6c83afcfa0e13ba15a6696662335d5b75",
+        "https://explorer.energi.network/token/0xffd7510ca0a3279c7a5f50018a26c21d5bc1dbcf"
+      ],
+      "official_forum_url": [
+        "",
+        "",
+        ""
+      ],
+      "chat_url": [
+        "https://discord.com/invite/buildoncircle",
+        "",
+        ""
+      ],
+      "announcement_url": [
+        "https://medium.com/centre-blog",
+        "https://blog.circle.com/2018/09/26/introducing-usd-coin/"
+      ],
+      "twitter_screen_name": "circle",
+      "facebook_username": "",
+      "bitcointalk_thread_identifier": null,
+      "telegram_channel_identifier": "",
+      "subreddit_url": "https://www.reddit.com",
+      "repos_url": {
+        "github": [
+          "https://github.com/centrehq/centre-tokens"
+        ],
+        "bitbucket": []
+      }
+    },
+    "image": {
+      "thumb": "https://coin-images.coingecko.com/coins/images/6319/thumb/usdc.png?1696506694",
+      "small": "https://coin-images.coingecko.com/coins/images/6319/small/usdc.png?1696506694",
+      "large": "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694"
+    },
+    "country_origin": "US",
+    "genesis_date": null,
+    "sentiment_votes_up_percentage": 28.57,
+    "sentiment_votes_down_percentage": 71.43,
+    "market_cap_rank": 6,
+    "market_data": {
+      "current_price_usd": 1.002,
+      "total_value_locked_usd": null,
+      "mcap_to_tvl_ratio": null,
+      "fdv_to_tvl_ratio": null,
+      "market_cap_usd": 34667420774,
+      "fully_diluted_valuation_usd": 34668024049,
+      "total_volume_usd": 6940346677,
+      "high_24h_usd": 1.002,
+      "low_24h_usd": 0.993996,
+      "ath_usd": 1.17,
+      "atl_usd": 0.877647,
+      "price_change_24h_usd": null,
+      "price_change_percentage_24h": 0.05479,
+      "total_supply": 34607358787.2574,
+      "max_supply": null,
+      "circulating_supply": 34606756568.2924
+    },
+    "community_data": {
+      "facebook_likes": null,
+      "twitter_followers": 185258,
+      "reddit_average_comments_48h": 0,
+      "reddit_average_posts_48h": 0,
+      "reddit_subscribers": 0,
+      "telegram_channel_user_count": null,
+      "telegram_followers": null,
+      "whatsapp_group_user_count": null
+    },
+    "developer_data": {
+      "forks": 326,
+      "stars": 537,
+      "subscribers": 35,
+      "total_issues": 0,
+      "closed_issues": 0,
+      "pull_requests_merged": 264,
+      "pull_requests_contributed": null,
+      "code_additions_deletions_4_weeks": {
+        "additions": 0,
+        "deletions": 0
+      },
+      "commit_count_4_weeks": 0
+    },
+    "last_updated": "2024-08-30T14:05:54.711Z",
+    "tickers": [
+      {
+        "market": {
+          "name": "Binance",
+          "identifier": "binance",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Gate.io",
+          "identifier": "gate",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bitget",
+          "identifier": "bitget",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bybit",
+          "identifier": "bybit_spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "DigiFinex",
+          "identifier": "digifinex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "FMFW.io",
+          "identifier": "bitcoin_com",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bitunix",
+          "identifier": "bitunix",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "FMFW.io",
+          "identifier": "bitcoin_com",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "WEEX",
+          "identifier": "weex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bybit",
+          "identifier": "bybit_spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bybit",
+          "identifier": "bybit_spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Binance",
+          "identifier": "binance",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bit2Me",
+          "identifier": "bit2me",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "LATOKEN",
+          "identifier": "latoken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bybit",
+          "identifier": "bybit_spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bit2Me",
+          "identifier": "bit2me",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Tapbit",
+          "identifier": "tapbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Coinbase Exchange",
+          "identifier": "gdax",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Tapbit",
+          "identifier": "tapbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "DigiFinex",
+          "identifier": "digifinex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "DigiFinex",
+          "identifier": "digifinex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "BingX",
+          "identifier": "bingx",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "BitMart",
+          "identifier": "bitmart",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Binance",
+          "identifier": "binance",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "HTX",
+          "identifier": "huobi",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Phemex",
+          "identifier": "phemex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bitcointry",
+          "identifier": "bitcointry_exchange",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "LBank",
+          "identifier": "lbank",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Biconomy.com",
+          "identifier": "biconomy",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "XT.COM",
+          "identifier": "xt",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Deribit Spot",
+          "identifier": "deribit_spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "WhiteBIT",
+          "identifier": "whitebit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "KuCoin",
+          "identifier": "kucoin",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Coinbase Exchange",
+          "identifier": "gdax",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "CoinEx",
+          "identifier": "coinex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Biconomy.com",
+          "identifier": "biconomy",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "BYDFi",
+          "identifier": "bydfi",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "PointPay",
+          "identifier": "pointpay",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Azbit",
+          "identifier": "azbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "KuCoin",
+          "identifier": "kucoin",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "WhiteBIT",
+          "identifier": "whitebit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Binance",
+          "identifier": "binance",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Coinmetro",
+          "identifier": "coin_metro",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "MEXC",
+          "identifier": "mxc",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "KuCoin",
+          "identifier": "kucoin",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Coinbase Exchange",
+          "identifier": "gdax",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Tapbit",
+          "identifier": "tapbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "HashKey Exchange",
+          "identifier": "hashkey_exchange",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Deepcoin",
+          "identifier": "deepcoin",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "C-Patex",
+          "identifier": "c_patex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bitstamp",
+          "identifier": "bitstamp",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Vertex (Spot)",
+          "identifier": "vertex-protocol-spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "KuCoin",
+          "identifier": "kucoin",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Cube",
+          "identifier": "cube",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bitvavo",
+          "identifier": "bitvavo",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "HashKey Exchange",
+          "identifier": "hashkey_exchange",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Coinmetro",
+          "identifier": "coin_metro",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "WhiteBIT",
+          "identifier": "whitebit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Tapbit",
+          "identifier": "tapbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Bybit",
+          "identifier": "bybit_spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "KuCoin",
+          "identifier": "kucoin",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "MEXC",
+          "identifier": "mxc",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Vertex (Spot)",
+          "identifier": "vertex-protocol-spot",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Gemini",
+          "identifier": "gemini",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Backpack Exchange ",
+          "identifier": "backpack_exchange",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "BingX",
+          "identifier": "bingx",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Backpack Exchange ",
+          "identifier": "backpack_exchange",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Coins.ph",
+          "identifier": "coinspro",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Binance US",
+          "identifier": "binance_us",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "BYDFi",
+          "identifier": "bydfi",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "OKX",
+          "identifier": "okex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Azbit",
+          "identifier": "azbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "XT.COM",
+          "identifier": "xt",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Hotcoin",
+          "identifier": "hotcoin_global",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "PointPay",
+          "identifier": "pointpay",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Binance",
+          "identifier": "binance",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Backpack Exchange ",
+          "identifier": "backpack_exchange",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "WhiteBIT",
+          "identifier": "whitebit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Azbit",
+          "identifier": "azbit",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "VALR",
+          "identifier": "valr",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Slex",
+          "identifier": "slex",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "BYDFi",
+          "identifier": "bydfi",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "XT.COM",
+          "identifier": "xt",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Uniswap V3 (Ethereum)",
+          "identifier": "uniswap_v3",
+          "has_trading_incentive": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "msol",
+    "symbol": "msol",
+    "name": "Marinade Staked SOL",
+    "asset_platform_id": "solana",
+    "platforms": {
+      "solana": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
+    },
+    "detail_platforms": {
+      "solana": {
+        "decimal_place": 9,
+        "contract_address": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
+      }
+    },
+    "block_time_in_minutes": 0,
+    "hashing_algorithm": null,
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Solana Ecosystem",
+      "Liquid Staking Tokens",
+      "Liquid Staked SOL"
+    ],
+    "preview_listing": false,
+    "public_notice": null,
+    "additional_notices": [],
+    "localization": {
+      "en": "Marinade Staked SOL",
+      "de": "",
+      "es": "",
+      "fr": "",
+      "it": "",
+      "pl": "",
+      "ro": "",
+      "hu": "",
+      "nl": "",
+      "pt": "",
+      "sv": "",
+      "vi": "",
+      "tr": "",
+      "ru": "",
+      "ja": "",
+      "zh": "",
+      "zh-tw": "",
+      "ko": "",
+      "ar": "",
+      "th": "",
+      "id": "",
+      "cs": "",
+      "da": "",
+      "el": "",
+      "hi": "",
+      "no": "",
+      "sk": "",
+      "uk": "",
+      "he": "",
+      "fi": "",
+      "bg": "",
+      "hr": "",
+      "lt": "",
+      "sl": ""
+    },
+    "description": "Marinade.finance is the first Liquid staking protocol built on Solana, and is supported by the Solana Foundation. The users stake their SOL tokens with Marinade-, which is using automatic staking strategies to delegate the SOL to validators, -and the user receive \"staked SOL\" tokens called mSOL that they can use in the world of DeFi or to swap any time back to original SOL tokens to unstake.",
+    "links": {
+      "homepage": [
+        "https://marinade.finance/",
+        "",
+        ""
+      ],
+      "whitepaper": "",
+      "blockchain_site": [
+        "https://explorer.solana.com/address/mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+        "https://solscan.io/token/mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "official_forum_url": [
+        "",
+        "",
+        ""
+      ],
+      "chat_url": [
+        "https://discord.gg/6EtUf4Euu6",
+        "",
+        ""
+      ],
+      "announcement_url": [
+        "https://medium.com/marinade-finance",
+        ""
+      ],
+      "twitter_screen_name": "MarinadeFinance",
+      "facebook_username": "",
+      "bitcointalk_thread_identifier": null,
+      "telegram_channel_identifier": "",
+      "subreddit_url": "https://www.reddit.com",
+      "repos_url": {
+        "github": [
+          "https://github.com/marinade-finance/"
+        ],
+        "bitbucket": []
+      }
+    },
+    "image": {
+      "thumb": "https://coin-images.coingecko.com/coins/images/17752/thumb/mSOL.png?1696517278",
+      "small": "https://coin-images.coingecko.com/coins/images/17752/small/mSOL.png?1696517278",
+      "large": "https://coin-images.coingecko.com/coins/images/17752/large/mSOL.png?1696517278"
+    },
+    "country_origin": "",
+    "genesis_date": null,
+    "sentiment_votes_up_percentage": null,
+    "sentiment_votes_down_percentage": null,
+    "market_cap_rank": 102,
+    "market_data": {
+      "current_price_usd": 169.54,
+      "total_value_locked_usd": null,
+      "mcap_to_tvl_ratio": null,
+      "fdv_to_tvl_ratio": null,
+      "market_cap_usd": 692019387,
+      "fully_diluted_valuation_usd": 692019387,
+      "total_volume_usd": 17984002,
+      "high_24h_usd": 178.24,
+      "low_24h_usd": 167.22,
+      "ath_usd": 261.93,
+      "atl_usd": 8.93,
+      "price_change_24h_usd": null,
+      "price_change_percentage_24h": -4.06054,
+      "total_supply": 4083654,
+      "max_supply": 4083654,
+      "circulating_supply": 4083654
+    },
+    "community_data": {
+      "facebook_likes": null,
+      "twitter_followers": 63230,
+      "reddit_average_comments_48h": 0,
+      "reddit_average_posts_48h": 0,
+      "reddit_subscribers": 0,
+      "telegram_channel_user_count": null,
+      "telegram_followers": null,
+      "whatsapp_group_user_count": null
+    },
+    "developer_data": {
+      "forks": 0,
+      "stars": 0,
+      "subscribers": 0,
+      "total_issues": 0,
+      "closed_issues": 0,
+      "pull_requests_merged": 0,
+      "pull_requests_contributed": null,
+      "code_additions_deletions_4_weeks": {
+        "additions": null,
+        "deletions": null
+      },
+      "commit_count_4_weeks": 0
+    },
+    "last_updated": "2024-08-30T14:05:52.032Z",
+    "tickers": [
+      {
+        "market": {
+          "name": "Coinbase Exchange",
+          "identifier": "gdax",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Gate.io",
+          "identifier": "gate",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Gate.io",
+          "identifier": "gate",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "LATOKEN",
+          "identifier": "latoken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Kraken",
+          "identifier": "kraken",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium",
+          "identifier": "raydium2",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Orca",
+          "identifier": "orca",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "GooseFX",
+          "identifier": "goosefx",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "GooseFX",
+          "identifier": "goosefx",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Meteora",
+          "identifier": "meteora",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Raydium (CLMM)",
+          "identifier": "raydium-clmm",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Armada",
+          "identifier": "armada",
+          "has_trading_incentive": false
+        }
+      },
+      {
+        "market": {
+          "name": "Jupiter",
+          "identifier": "jupiter",
+          "has_trading_incentive": false
+        }
+      }
+    ]
+  }
+]

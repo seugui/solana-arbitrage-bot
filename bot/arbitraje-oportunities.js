@@ -1,11 +1,15 @@
+import { format } from 'date-fns';
 import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js'; 
 import { fetchRaydiumPoolDataByMints } from './raydium-api.js';
 import { fetchOrcaPoolDataByMints } from './orca-api.js'; 
 import { fetchMeteoraPoolDataByMints } from './meteora-api.js'; 
 import { extractAssetDetails } from './parse-save-json.js'; // Import the Meteora API function
 
-
 async function displayApiResponse() {
+  const lastRunTime = new Date();
+  const formattedDate = format(lastRunTime, 'yyyy-MM-dd HH:mm:ss');
+  console.log(`Last run: ${formattedDate}`);
+
   try {
     const tokenOneMintAddress = process.env.TOKEN_ONE; 
     const tokenTwoMintAddress = process.env.TOKEN_TWO;
@@ -13,7 +17,6 @@ async function displayApiResponse() {
     // Fetch the token data from the CoinGecko API
     const tokenOneData = await extractAssetDetails(tokenOneMintAddress);
     const tokenTwoData = await extractAssetDetails(tokenTwoMintAddress);
-
 
     if (tokenOneData) {
       // Prepare a structured object for the token data
@@ -157,5 +160,7 @@ function findBestArbitrageOpportunity(combinedTable) {
   });
 }
 
-// Call the function to display the data
+// Schedule the function to run every 60 seconds
+
+// Initial call to display the data immediately
 displayApiResponse();
