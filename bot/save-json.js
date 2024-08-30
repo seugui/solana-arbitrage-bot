@@ -3,7 +3,7 @@ import fs from 'fs'; // Node.js file system module
 import path from 'path'; // Node.js path module
 
 // Function to fetch and save JSON results for multiple tokens
-async function fetchAndSaveTokensData() {
+export async function fetchAndSaveTokensData() { // Export the function
   try {
     // Collect all token environment variables dynamically
     const tokens = Object.keys(process.env)
@@ -27,8 +27,8 @@ async function fetchAndSaveTokensData() {
       }
     }));
 
-    // Determine the directory where coingecko-api.js is located
-    const currentDirectory = path.dirname(import.meta.url.replace('file://', ''));
+    // Determine the directory where save-json.js is located
+    const currentDirectory = path.dirname(new URL(import.meta.url).pathname);
 
     // Set the path for the JSON file
     const filePath = path.join(currentDirectory, 'tokens-data.json');
@@ -41,5 +41,7 @@ async function fetchAndSaveTokensData() {
   }
 }
 
-// Execute the function to fetch, save, and display token data
-fetchAndSaveTokensData();
+// Execute the function to fetch, save, and display token data if the script is run directly
+if (import.meta.url === new URL('file://' + process.argv[1]).href) {
+    fetchAndSaveTokensData();
+}

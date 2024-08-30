@@ -2,6 +2,8 @@ import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js';
 import { fetchRaydiumPoolDataByMints } from './raydium-api.js';
 import { fetchOrcaPoolDataByMints } from './orca-api.js'; 
 import { fetchMeteoraPoolDataByMints } from './meteora-api.js'; 
+import { extractAssetDetails } from './parse-save-json.js'; // Import the Meteora API function
+
 
 async function displayApiResponse() {
   try {
@@ -9,14 +11,19 @@ async function displayApiResponse() {
     const tokenTwoMintAddress = process.env.TOKEN_TWO;
     
     // Fetch the token data from the CoinGecko API
-    const tokenData = await fetchSolanaCoingeckoTokenData(tokenOneMintAddress);
-    if (tokenData) {
+    const tokenOneData = await extractAssetDetails(tokenOneMintAddress);
+    const tokenTwoData = await extractAssetDetails(tokenTwoMintAddress);
+
+
+    if (tokenOneData) {
+      // Prepare a structured object for the token data
       const tokenTable = {
-        symbol: tokenData.symbol,
-        name: tokenData.name,
-        currentPriceUSD: tokenData.market_data.current_price_usd,
-        volume24hUSD: tokenData.market_data.total_volume_usd || 'N/A'
+        symbol: tokenOneData.symbol,
+        name: tokenOneData.name,
+        price: tokenOneData.price
       };
+
+      // Display the token data in a table format
       console.table([tokenTable]);
     } else {
       console.log('Failed to fetch token information.');
@@ -35,8 +42,8 @@ async function displayApiResponse() {
     const raydiumTable = filteredRaydiumPools.map(pool => ({
       id: pool.id,
       price: pool.price?.toFixed(2) ?? 'N/A',
-      tokenA: pool.mintA.address,
-      tokenB: pool.mintB.address,
+      tokenA: tokenOneData.symbol,
+      tokenB: tokenTwoData.symbol,
       tvl: pool.tvl?.toFixed(2) ?? 'N/A',
       source: 'Raydium'
     }));
@@ -47,8 +54,8 @@ async function displayApiResponse() {
     const orcaTable = filteredOrcaPools.map(pool => ({
       id: pool.address,
       price: pool.price?.toFixed(2) ?? 'N/A',
-      tokenA: pool.tokenA.mint,
-      tokenB: pool.tokenB.mint,
+      tokenA: tokenOneData.symbol,
+      tokenB: tokenTwoData.symbol,
       tvl: pool.tvl?.toFixed(2) ?? 'N/A',
       source: 'Orca'
     }));
@@ -67,8 +74,8 @@ async function displayApiResponse() {
       return {
         id: pool.pool_address,
         price: priceTokenA.toFixed(2) ?? 'N/A',
-        tokenA: tokenA,
-        tokenB: tokenB,
+        tokenA: tokenOneData.symbol,
+        tokenB: tokenTwoData.symbol,
         tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
         source: 'Meteora'
       };
