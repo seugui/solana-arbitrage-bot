@@ -1,11 +1,30 @@
 import { format } from 'date-fns';
-import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js'; 
 import { fetchRaydiumPoolDataByMints } from './raydium-api.js';
-import { fetchOrcaPoolDataByMints } from './orca-api.js'; 
-import { fetchMeteoraPoolDataByMints } from './meteora-api.js'; 
-import { extractAssetDetails } from './parse-save-json.js'; // Import the Meteora API function
+import { fetchOrcaPoolDataByMints } from './orca-api.js';
+import { fetchMeteoraPoolDataByMints } from './meteora-api.js';
+import { extractAssetDetails } from './parse-save-json.js';
+import { standardizePoolData } from './pool-data-utils.js'; // Import the function
 
+// Constants
+const TVL_THRESHOLD = 50000;
+
+// Function to process pools with filtering and formatting
+function processPools(pools, tokenOneData, tokenTwoData) {
+  return pools
+    .filter(pool => parseFloat(pool.tvl) >= TVL_THRESHOLD) // Ensure that tvl is a number for comparison
+    .map(pool => ({
+      id: pool.id,
+      price: pool.price,
+      tokenA: tokenOneData.symbol,
+      tokenB: tokenTwoData.symbol,
+      tvl: pool.tvl,
+      source: pool.source
+    }));
+}
+
+// Main function to fetch, process, and display data
 async function displayApiResponse() {
+  console.clear(); // Clear the console at the start of each run
   const lastRunTime = new Date();
   const formattedDate = format(lastRunTime, 'yyyy-MM-dd HH:mm:ss');
   console.log(`Last run: ${formattedDate}`);
@@ -13,96 +32,52 @@ async function displayApiResponse() {
   try {
     const tokenOneMintAddress = process.env.TOKEN_ONE; 
     const tokenTwoMintAddress = process.env.TOKEN_TWO;
-    
-    // Fetch the token data from the CoinGecko API
+
+    // Fetch token data
     const tokenOneData = await extractAssetDetails(tokenOneMintAddress);
     const tokenTwoData = await extractAssetDetails(tokenTwoMintAddress);
 
-    if (tokenOneData) {
-      // Prepare a structured object for the token data
-      const tokenTable = {
-        symbol: tokenOneData.symbol,
-        name: tokenOneData.name,
-        price: tokenOneData.price
-      };
-
-      // Display the token data in a table format
-      console.table([tokenTable]);
-    } else {
+    if (!tokenOneData || !tokenTwoData) {
       console.log('Failed to fetch token information.');
+      return;
     }
 
-    // Fetch the data from the Raydium API
-    const raydiumResponse = await fetchRaydiumPoolDataByMints(
-      'all', 
-      'default', 
-      'desc', 
-      1000, 
-      1
-    );
-    const tvlThreshold = 50000;
-    const filteredRaydiumPools = raydiumResponse.data.data.filter(pool => pool.tvl >= tvlThreshold);
-    const raydiumTable = filteredRaydiumPools.map(pool => ({
-      id: pool.id,
-      price: pool.price?.toFixed(2) ?? 'N/A',
-      tokenA: tokenOneData.symbol,
-      tokenB: tokenTwoData.symbol,
-      tvl: pool.tvl?.toFixed(2) ?? 'N/A',
-      source: 'Raydium'
-    }));
+    console.table([{
+      symbol: tokenOneData.symbol,
+      name: tokenOneData.name,
+      price: tokenOneData.price
+    }]);
 
-    // Fetch the data from the Orca API
+    // Fetch and process Raydium pool data
+    const raydiumResponse = await fetchRaydiumPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
+    const raydiumPools = standardizePoolData(raydiumResponse.data.data, 'Raydium');
+    const raydiumTable = processPools(raydiumPools, tokenOneData, tokenTwoData);
+
+    // Fetch and process Orca pool data
     const orcaPools = await fetchOrcaPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
-    const filteredOrcaPools = orcaPools.filter(pool => pool.tvl >= tvlThreshold);
-    const orcaTable = filteredOrcaPools.map(pool => ({
-      id: pool.address,
-      price: pool.price?.toFixed(2) ?? 'N/A',
-      tokenA: tokenOneData.symbol,
-      tokenB: tokenTwoData.symbol,
-      tvl: pool.tvl?.toFixed(2) ?? 'N/A',
-      source: 'Orca'
-    }));
+    const standardizedOrcaPools = standardizePoolData(orcaPools, 'Orca');
+    const orcaTable = processPools(standardizedOrcaPools, tokenOneData, tokenTwoData);
 
-    // Fetch the data from the Meteora API
+    // Fetch and process Meteora pool data
     const meteoraPools = await fetchMeteoraPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
-    const filteredMeteoraPools = meteoraPools.filter(pool => parseFloat(pool.pool_tvl) >= tvlThreshold);
-    const meteoraTable = filteredMeteoraPools.map(pool => {
-      const [usdAmountB, usdAmountA] = pool.pool_token_usd_amounts;
-      const [amountB, amountA] = pool.pool_token_amounts;
-      const [mintB, mintA] = pool.pool_token_mints;
-      const tokenA = mintA;
-      const tokenB = mintB;
-      const priceTokenA = parseFloat(usdAmountA) / parseFloat(amountA);
-      const priceTokenB = parseFloat(usdAmountB) / parseFloat(amountB);
-      return {
-        id: pool.pool_address,
-        price: priceTokenA.toFixed(2) ?? 'N/A',
-        tokenA: tokenOneData.symbol,
-        tokenB: tokenTwoData.symbol,
-        tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
-        source: 'Meteora'
-      };
-    });
+    const standardizedMeteoraPools = standardizePoolData(meteoraPools, 'Meteora');
+    const meteoraTable = processPools(standardizedMeteoraPools, tokenOneData, tokenTwoData);
 
-    // Combine Raydium, Orca, and Meteora data into a single array
+    // Combine and sort data
     const combinedTable = [...raydiumTable, ...orcaTable, ...meteoraTable];
-
-    // Ensure that all pools are included and sorted by price in descending order
     combinedTable.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 
     console.table(combinedTable);
 
-    // Find the best arbitrage opportunity
+    // Find and display the best arbitrage opportunity
     const bestOpportunity = findBestArbitrageOpportunity(combinedTable);
-
-    // Display the best opportunity along with pools involved
     if (bestOpportunity) {
       console.table([bestOpportunity.opportunity]);
       console.table(bestOpportunity.pools);
     } else {
       console.log('No arbitrage opportunities found.');
     }
-    
+
   } catch (error) {
     console.error('Error fetching or displaying data:', error.message || error);
   }
@@ -151,16 +126,13 @@ function findBestArbitrageOpportunity(combinedTable) {
     }
   });
 
-  if (opportunities.length === 0) {
-    return null;
-  }
-
-  return opportunities.reduce((best, current) => {
-    return (current.opportunity.priceDifference > best.opportunity.priceDifference) ? current : best;
-  });
+  return opportunities.length ? opportunities.reduce((best, current) => 
+    current.opportunity.priceDifference > best.opportunity.priceDifference ? current : best
+  ) : null;
 }
-
-// Schedule the function to run every 60 seconds
 
 // Initial call to display the data immediately
 displayApiResponse();
+
+// Optionally, schedule the function to run periodically (e.g., every 60 seconds)
+// setInterval(displayApiResponse, 60000);

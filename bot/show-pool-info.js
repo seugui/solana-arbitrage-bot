@@ -1,112 +1,78 @@
-import { fetchSolanaCoingeckoTokenData } from './coingecko-api.js'; 
+import { format } from 'date-fns';
 import { fetchRaydiumPoolDataByMints } from './raydium-api.js';
-import { fetchOrcaPoolDataByMints } from './orca-api.js'; // Import the Orca API function
-import { fetchMeteoraPoolDataByMints } from './meteora-api.js'; // Import the Meteora API function
-import { extractAssetDetails } from './parse-save-json.js'; // Import the Meteora API function
+import { fetchOrcaPoolDataByMints } from './orca-api.js';
+import { fetchMeteoraPoolDataByMints } from './meteora-api.js';
+import { extractAssetDetails } from './parse-save-json.js';
+import { standardizePoolData } from './pool-data-utils.js'; // Import the function
 
+// Constants
+const TVL_THRESHOLD = 50000;
+const REFRESH_INTERVAL = 60000; // 60 seconds
 
+// Function to process pools with filtering and formatting
+function processPools(pools, tokenOneData, tokenTwoData) {
+  return pools
+    .filter(pool => parseFloat(pool.tvl) >= TVL_THRESHOLD) // Ensure that tvl is a number for comparison
+    .map(pool => ({
+      id: pool.id,
+      price: pool.price,
+      tokenA: tokenOneData.symbol,
+      tokenB: tokenTwoData.symbol,
+      tvl: pool.tvl,
+      source: pool.source
+    }));
+}
+
+// Main function to fetch, process, and display data
 async function displayApiResponse() {
+  console.clear(); // Clear the console at the start of each run
+  const lastRunTime = new Date();
+  const formattedDate = format(lastRunTime, 'yyyy-MM-dd HH:mm:ss');
+  console.log(`Last run: ${formattedDate}`);
+
   try {
-    // Get token mint addresses from environment variables
-    const tokenOneMintAddress = process.env.TOKEN_ONE;
+    const tokenOneMintAddress = process.env.TOKEN_ONE; 
     const tokenTwoMintAddress = process.env.TOKEN_TWO;
-    
-    // Fetch the token data from the CoinGecko API
+
+    // Fetch token data
     const tokenOneData = await extractAssetDetails(tokenOneMintAddress);
     const tokenTwoData = await extractAssetDetails(tokenTwoMintAddress);
 
-
-    if (tokenOneData) {
-      // Prepare a structured object for the token data
-      const tokenTable = {
-        symbol: tokenOneData.symbol,
-        name: tokenOneData.name,
-        price: tokenOneData.price
-      };
-
-      // Display the token data in a table format
-      console.table([tokenTable]);
-    } else {
+    if (!tokenOneData || !tokenTwoData) {
       console.log('Failed to fetch token information.');
+      return;
     }
 
-    // Fetch the data from the Raydium API
-    const raydiumResponse = await fetchRaydiumPoolDataByMints(
-      'all',          // poolType
-      'default',      // poolSortField
-      'desc',         // sortType
-      1000,           // pageSize
-      1               // page
-    );
+    console.table([{
+      symbol: tokenOneData.symbol,
+      name: tokenOneData.name,
+      price: tokenOneData.price
+    }]);
 
-    // Define your TVL threshold
-    const tvlThreshold = 100000;
+    // Fetch and process Raydium pool data
+    const raydiumResponse = await fetchRaydiumPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
+    const raydiumPools = standardizePoolData(raydiumResponse.data.data, 'Raydium');
+    const raydiumTable = processPools(raydiumPools, tokenOneData, tokenTwoData);
 
-    // Extract and filter the data array by TVL
-    const filteredRaydiumPools = raydiumResponse.data.data.filter(pool => pool.tvl >= tvlThreshold);
-
-    // Prepare a structured array for logging Raydium data
-    const raydiumTable = filteredRaydiumPools.map(pool => ({
-      id: pool.id,
-      price: pool.price?.toFixed(2) ?? 'N/A',
-      tokenA: tokenOneData.symbol,
-      tokenB: tokenTwoData.symbol,
-      tvl: pool.tvl?.toFixed(2) ?? 'N/A',
-      source: 'Raydium' // Indicate the source of the data
-    }));
-
-    // Fetch the data from the Orca API
+    // Fetch and process Orca pool data
     const orcaPools = await fetchOrcaPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
+    const standardizedOrcaPools = standardizePoolData(orcaPools, 'Orca');
+    const orcaTable = processPools(standardizedOrcaPools, tokenOneData, tokenTwoData);
 
-    // Filter Orca pools by TVL
-    const filteredOrcaPools = orcaPools.filter(pool => pool.tvl >= tvlThreshold);
-
-    // Prepare a structured array for logging filtered Orca pool data
-    const orcaTable = filteredOrcaPools.map(pool => ({
-      id: pool.address,
-      price: pool.price?.toFixed(2) ?? 'N/A',
-      tokenA: tokenOneData.symbol,
-      tokenB: tokenTwoData.symbol,
-      tvl: pool.tvl?.toFixed(2) ?? 'N/A',
-      source: 'Orca' // Indicate the source of the data
-    }));
-
-    // Fetch the data from the Meteora API
+    // Fetch and process Meteora pool data
     const meteoraPools = await fetchMeteoraPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
+    const standardizedMeteoraPools = standardizePoolData(meteoraPools, 'Meteora');
+    const meteoraTable = processPools(standardizedMeteoraPools, tokenOneData, tokenTwoData);
 
-    // Filter Meteora pools by TVL
-    const filteredMeteoraPools = meteoraPools.filter(pool => parseFloat(pool.pool_tvl) >= tvlThreshold);
-
-    // Prepare a structured array for logging filtered Meteora pool data
-    const meteoraTable = filteredMeteoraPools.map(pool => {
-      // Extract USD values and amounts
-      const [usdAmountA, usdAmountB] = pool.pool_token_usd_amounts;
-      const [amountA, amountB] = pool.pool_token_amounts;
-
-      // Calculate token prices
-      const priceTokenA = parseFloat(usdAmountA) / parseFloat(amountA);
-      const priceTokenB = parseFloat(usdAmountB) / parseFloat(amountB);
-
-      return {
-        id: pool.pool_address,
-        price: priceTokenB.toFixed(2) ?? 'N/A',
-        tokenA: tokenOneData.symbol,
-        tokenB: tokenTwoData.symbol,
-        tvl: parseFloat(pool.pool_tvl)?.toFixed(2) ?? 'N/A',
-        source: 'Meteora' // Indicate the source of the data
-      };
-    });
-
-    // Combine Raydium, Orca, and Meteora data into a single array
+    // Combine and sort data
     const combinedTable = [...raydiumTable, ...orcaTable, ...meteoraTable];
+    combinedTable.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 
-    // Log combined data in a tabular format
     console.table(combinedTable);
-    
   } catch (error) {
     console.error('Error fetching or displaying data:', error.message || error);
   }
 }
 
-// Call the function to display the data
+// Initial call to display the data immediately
 displayApiResponse();
