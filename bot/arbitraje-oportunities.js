@@ -3,7 +3,7 @@ import { fetchRaydiumPoolDataByMints } from './raydium-api.js';
 import { fetchOrcaPoolDataByMints } from './orca-api.js';
 import { fetchMeteoraPoolDataByMints } from './meteora-api.js';
 import { extractAssetDetails } from './parse-save-json.js';
-import { standardizePoolData } from './pool-data-utils.js'; // Import the function
+import { standardizePoolData } from './pool-data-utils.js';
 
 // Constants
 const TVL_THRESHOLD = 50000;
@@ -11,7 +11,7 @@ const TVL_THRESHOLD = 50000;
 // Function to process pools with filtering and formatting
 function processPools(pools, tokenOneData, tokenTwoData) {
   return pools
-    .filter(pool => parseFloat(pool.tvl) >= TVL_THRESHOLD) // Ensure that tvl is a number for comparison
+    .filter(pool => parseFloat(pool.tvl) >= TVL_THRESHOLD)
     .map(pool => ({
       id: pool.id,
       price: pool.price,
@@ -22,9 +22,20 @@ function processPools(pools, tokenOneData, tokenTwoData) {
     }));
 }
 
+// Helper function to safely fetch data with error handling
+async function safeFetch(fetchFunction, ...args) {
+  try {
+    const response = await fetchFunction(...args);
+    return response || [];
+  } catch (error) {
+    console.warn(`Error fetching data: ${error.message || error}`);
+    return [];
+  }
+}
+
 // Main function to fetch, process, and display data
 async function displayApiResponse() {
-  console.clear(); // Clear the console at the start of each run
+  console.clear();
   const lastRunTime = new Date();
   const formattedDate = format(lastRunTime, 'yyyy-MM-dd HH:mm:ss');
   console.log(`Last run: ${formattedDate}`);
@@ -48,18 +59,16 @@ async function displayApiResponse() {
       price: tokenOneData.price
     }]);
 
-    // Fetch and process Raydium pool data
-    const raydiumResponse = await fetchRaydiumPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
-    const raydiumPools = standardizePoolData(raydiumResponse.data.data, 'Raydium');
+    // Fetch and process pool data from multiple DEXs
+    const raydiumResponse = await safeFetch(fetchRaydiumPoolDataByMints, tokenOneMintAddress, tokenTwoMintAddress);
+    const raydiumPools = standardizePoolData(raydiumResponse.data?.data || [], 'Raydium');
     const raydiumTable = processPools(raydiumPools, tokenOneData, tokenTwoData);
 
-    // Fetch and process Orca pool data
-    const orcaPools = await fetchOrcaPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
+    const orcaPools = await safeFetch(fetchOrcaPoolDataByMints, tokenOneMintAddress, tokenTwoMintAddress);
     const standardizedOrcaPools = standardizePoolData(orcaPools, 'Orca');
     const orcaTable = processPools(standardizedOrcaPools, tokenOneData, tokenTwoData);
 
-    // Fetch and process Meteora pool data
-    const meteoraPools = await fetchMeteoraPoolDataByMints(tokenOneMintAddress, tokenTwoMintAddress);
+    const meteoraPools = await safeFetch(fetchMeteoraPoolDataByMints, tokenOneMintAddress, tokenTwoMintAddress);
     const standardizedMeteoraPools = standardizePoolData(meteoraPools, 'Meteora');
     const meteoraTable = processPools(standardizedMeteoraPools, tokenOneData, tokenTwoData);
 
@@ -67,7 +76,11 @@ async function displayApiResponse() {
     const combinedTable = [...raydiumTable, ...orcaTable, ...meteoraTable];
     combinedTable.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 
-    console.table(combinedTable);
+    if (combinedTable.length) {
+      console.table(combinedTable);
+    } else {
+      console.log('No pool data available.');
+    }
 
     // Find and display the best arbitrage opportunity
     const bestOpportunity = findBestArbitrageOpportunity(combinedTable);
@@ -83,7 +96,7 @@ async function displayApiResponse() {
   }
 }
 
-// Function to find the best arbitrage opportunity from a combined table
+// Function to find the best arbitrage opportunity
 function findBestArbitrageOpportunity(combinedTable) {
   const priceMap = new Map();
   const opportunities = [];
@@ -105,6 +118,7 @@ function findBestArbitrageOpportunity(combinedTable) {
       const minPrice = parseFloat(priceMap.get(key).minPricePool.price);
       const maxPrice = parseFloat(priceMap.get(key).maxPricePool.price);
       const priceDifference = maxPrice - minPrice;
+
       if (priceDifference > 0) {
         opportunities.push({
           opportunity: {
@@ -126,13 +140,12 @@ function findBestArbitrageOpportunity(combinedTable) {
     }
   });
 
-  return opportunities.length ? opportunities.reduce((best, current) => 
-    current.opportunity.priceDifference > best.opportunity.priceDifference ? current : best
-  ) : null;
+  return opportunities.length
+    ? opportunities.reduce((best, current) =>
+        current.opportunity.priceDifference > best.opportunity.priceDifference ? current : best
+      )
+    : null;
 }
 
 // Initial call to display the data immediately
 displayApiResponse();
-
-// Optionally, schedule the function to run periodically (e.g., every 60 seconds)
-// setInterval(displayApiResponse, 60000);

@@ -76,3 +76,5 @@ async function displayApiResponse() {
 
 // Initial call to display the data immediately
 displayApiResponse();
+
+// Set interval to call displayApiResponse every 60 seconds
