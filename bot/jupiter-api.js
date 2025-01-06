@@ -5,8 +5,8 @@ export async function fetchQuote(
   inputMint,
   outputMint,
   amount,
-  onlyDirectRoutes = 'true',
-  swapMode = 'ExactIn',
+  onlyDirectRoutes,
+  swapMode,
   dexes,
 ) {
   const params = {
