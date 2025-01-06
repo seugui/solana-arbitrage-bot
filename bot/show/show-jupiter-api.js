@@ -10,7 +10,8 @@ async function displayQuoteResults() {
     // Use environment variables for inputMint, outputMint, and amount
     const inputMint = process.env.TOKEN_ONE; // SOL mint
     const outputMint = process.env.TOKEN_TWO; // USDC mint
-    const amount = '1000000000'; // Amount in lamports (1 SOL = 1,000,000 lamports)
+    const dexes = 'Raydium'; // Dexes
+    const amount = process.env.AMOUNT; // Amount in lamports (1 SOL = 1,000,000 lamports)
 
     // Call the function
     const result = await fetchQuote(inputMint, outputMint, amount);
