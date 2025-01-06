@@ -1,8 +1,7 @@
-// Import dotenv to load environment variables globally
 import dotenv from 'dotenv';
 import readline from 'readline';
 import { exec } from 'child_process';
-import { fetchAndSaveTokensData } from './save-json.js'; // Import the function
+import { fetchAndSaveTokensData } from './save-json.js';
 
 // Load environment variables
 dotenv.config();
@@ -53,7 +52,7 @@ const handleMenuSelection = (choice) => {
             runScript('./parse-save-json.js');
             break;
         case '8':
-            runScript('./show/show-orca-api.js.js');
+            runScript('./show/show-jupiter-api.js'); // New Jupiter API script
             break;
         case '9':
             console.log('Exiting...');
@@ -82,5 +81,6 @@ const runScript = (scriptName) => {
     });
 };
 
-fetchAndSaveTokensData()
+// Fetch tokens data and start the menu
+fetchAndSaveTokensData();
 showMenu();
